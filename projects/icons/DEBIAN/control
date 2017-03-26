@@ -1,0 +1,9 @@
+Architecture: iphoneos-arm
+Author:  Mr-PHo3niX 
+Depiction: https://github.com/Mr-PHo3niX/Mr-PHo3niX.github.io
+Description: Adds Icon Images
+Maintainer:  Mr-PHo3niX  <k1n5pho3nix@gmail.com>
+Name: icons
+Package: com.MrPHo3niX.icons
+Section: Tweaks
+Version: 1.0

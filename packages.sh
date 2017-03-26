@@ -1,2 +1,2 @@
 #!/bin/bash
-dpkg-deb -bZgzip projects/finalkick debs
+dpkg-deb -bZgzip projects/icons debs
