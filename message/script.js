@@ -9,7 +9,24 @@ tomorrow.setDate(tomorrow.getDate() + 1);
 
 
 yesBtn.addEventListener("click", () => {
-  question.innerHTML = "Yay, see you on the" + " " + tomorrow.getDate() + "th!";
+  // check if th or st (1st, 2nd, 3rd, 31st)
+  switch (tomorrow.getDate()) {
+    case 1:
+    case 21:
+    case 31:
+      question.innerHTML = "Yay, see you on the" + " " + tomorrow.getDate() + "st!";
+      break;
+    case 2:
+    case 22:
+      question.innerHTML = "Yay, see you on the" + " " + tomorrow.getDate() + "nd!";
+      break;
+    case 3:
+    case 23:
+      question.innerHTML = "Yay, see you on the" + " " + tomorrow.getDate() + "rd!";
+      break;
+    default:
+      question.innerHTML = "Yay, see you on the" + " " + tomorrow.getDate() + "th!";
+  }
   gif.src =
     "https://media.giphy.com/media/UMon0fuimoAN9ueUNP/giphy.gif";
 });
