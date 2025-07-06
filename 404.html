@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found</title>
+  <style>
+    :root {
+      /* Base colors - Light Mode - Softer, easier on the eyes */
+      --color-bg-primary: 248 246 235; /* Softer warm base */
+      --color-bg-secondary: 245 241 236; /* Gentle warm secondary */
+      --color-text-primary: 67 56 40; /* Dark warm brown for strong contrast */
+      --color-text-secondary: 92 77 57; /* Medium warm brown */
+      --color-accent: 254 113 90; /* Orange accent for light mode */
+      --color-accent-light: 255 135 110; /* Lighter orange */
+      --color-accent-dark: 240 95 75; /* Darker orange */
+    }
+
+    [data-theme="dark"] {
+      /* Base colors - Dark Mode matching the design */
+      --color-bg-primary: 18 30 40; /* #121E28 - Main dark navy background */
+      --color-bg-secondary: 24 35 45; /* #18232D - Header/bar background */
+      --color-text-primary: 248 250 252; /* Very light for contrast */
+      --color-text-secondary: 203 213 225; /* Light slate */
+      --color-accent: 254 113 90; /* #FE715A - Main orange accent */
+    }
+
+    /* Global styles */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: all 0.3s ease;
+      background-color: rgb(var(--color-bg-primary));
+      color: rgb(var(--color-text-primary));
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: Poppins, system-ui, sans-serif;
+      font-weight: 600;
+    }
+
+    .error-container {
+      padding: 2rem;
+    }
+
+    .error-code {
+      font-size: 8rem;
+      font-weight: bold;
+      color: rgb(var(--color-accent));
+      margin: 0;
+      line-height: 1;
+    }
+
+    .error-message {
+      font-size: 1.5rem;
+      margin: 1rem 0 2rem;
+    }
+
+    .btn-primary {
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgb(var(--color-accent));
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 4px 16px 0 rgba(254, 113, 90, 0.24);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 24px 0 rgba(254, 113, 90, 0.32);
+      background: rgb(var(--color-accent-dark));
+    }
+
+    /* Check system preference for dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg-primary: 18 30 40;
+        --color-bg-secondary: 24 35 45;
+        --color-text-primary: 248 250 252;
+        --color-text-secondary: 203 213 225;
+      }
+    }
+  </style>
+  <script>
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // https://github.com/rafgraph/spa-github-pages
+    (function(l) {
+      if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) { 
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+</head>
+<body>
+  <div class="error-container">
+    <h1 class="error-code">404</h1>
+    <p class="error-message">Oops! The page you're looking for doesn't exist.</p>
+    <a href="/" class="btn-primary">Return Home</a>
+  </div>
+
+  <script>
+    // Check for dark mode preference
+    function setTheme() {
+      if (localStorage.getItem('theme') === 'dark' || 
+          (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    }
+    
+    setTheme();
+  </script>
+</body>
+</html>

@@ -1,30 +1,28 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tailwindcss(),
-  ],
+  plugins: [react(), tailwindcss()],
+  base: "/", // Add this line for GitHub Pages
   build: {
     // Optimize chunk sizes
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom'],
-          framer: ['framer-motion'],
-          icons: ['react-icons/fi', 'react-icons/fa'],
+          vendor: ["react", "react-dom"],
+          framer: ["framer-motion"],
+          icons: ["react-icons/fi", "react-icons/fa"],
         },
       },
     },
     // Reduce bundle size
-    minify: 'terser',
+    minify: "terser",
   },
   server: {
     hmr: {
-      overlay: false
-    }
-  }
-})
+      overlay: false,
+    },
+  },
+});
