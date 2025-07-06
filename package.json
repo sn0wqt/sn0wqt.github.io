@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && rm -rf docs && cp -R dist docs && git add docs && git commit -m \"deploy\" && git push"
   },
   "homepage": "https://sn0wqt.github.io",
   "dependencies": {
