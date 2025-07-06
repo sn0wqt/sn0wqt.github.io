@@ -1,14 +1,12 @@
 {
-  "name": "portfolio-frontend",
+  "name": "sn0wqt.dev",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "npm run build && rm -rf docs && cp -R dist docs && git add docs && git commit -m \"deploy\" && git push"
+    "preview": "vite preview"
   },
   "homepage": "https://sn0wqt.github.io",
   "dependencies": {
@@ -30,7 +28,6 @@
     "eslint": "^9.29.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
-    "gh-pages": "^6.3.0",
     "globals": "^16.2.0",
     "tailwindcss": "^4.1.11",
     "terser": "^5.43.1",
