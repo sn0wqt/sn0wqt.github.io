@@ -63,7 +63,10 @@ const Header: React.FC = () => {
           className="text-xl md:text-2xl font-mono font-bold text-accent cursor-pointer liquid-morph"
           transition={{ type: "spring", stiffness: 400, damping: 10 }}
         >
-          <a href="#hero" onClick={() => scrollToSection("hero")}>
+            <a href="/" onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/';
+            }}>
             <span className="liquid-text">sn0wqt.dev</span>
           </a>
         </motion.div>
