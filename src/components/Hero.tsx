@@ -19,14 +19,14 @@ const Hero: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center bg-bg-primary"
+      className="relative min-h-screen flex items-center bg-bg-primary w-full overflow-x-hidden"
     >
-      <div className="px-4 md:px-8 lg:px-16 mx-auto max-w-7xl relative z-10">
+      <div className="px-4 md:px-8 lg:px-16 mx-auto w-full max-w-7xl relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center w-full"
         >
           <motion.h2
             className="text-lg md:text-xl text-text-secondary mb-3"
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Asaad F. Rasul <span className="text-accent">(sn0wqt)</span>
+            Asaad F. Rasul
           </motion.h1>
 
           <motion.div

@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { portfolioData } from "../data/portfolioData";
-import { FiBriefcase, FiCalendar, FiCheckCircle } from "react-icons/fi";
-import { FaGraduationCap } from "react-icons/fa";
+import { FiCalendar, FiCheckCircle, FiMapPin } from "react-icons/fi";
+import { LuGraduationCap, LuBriefcase, LuMedal } from "react-icons/lu";
 
 const Experience: React.FC = () => {
   const containerVariants = {
@@ -50,35 +50,39 @@ const Experience: React.FC = () => {
               variants={itemVariants}
               className="flex items-center gap-2 text-2xl font-bold text-text-primary mb-8 font-heading"
             >
-              <FiBriefcase className="text-accent text-2xl" />
+              <LuBriefcase className="text-accent text-2xl" />
               Professional Experience
             </motion.h3>
 
             <div className="relative space-y-8">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent to-accent-light"></div>
+              {/* Timeline line - only visible on md screens and up */}
+              <div className="hidden md:block absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent to-accent-light"></div>
 
               {portfolioData.professionalExperience.map((exp, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="relative pl-16"
+                  className="relative md:pl-16 pl-0"
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute left-4 top-6 w-4 h-4 bg-accent rounded-full border-4 border-bg-primary shadow-lg"></div>{" "}
-                  <div className="card-orange p-6">
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  {/* Timeline dot - only visible on md screens and up */}
+                  <div className="hidden md:block absolute left-4 top-6 w-4 h-4 bg-accent rounded-full border-4 border-bg-primary shadow-lg"></div>{" "}
+                  <div className="card-orange p-6 mt-0 md:mt-0">
+                    <div className="mb-2">
                       <h4 className="text-xl font-semibold text-text-primary font-heading">
                         {exp.role}
                       </h4>
-                      <span className="px-3 py-1 text-sm rounded-full font-medium bg-accent text-bg-primary">
-                        {exp.company}
-                      </span>
                     </div>
 
-                    <div className="flex items-center text-text-secondary mb-4 text-sm">
-                      <FiCalendar className="mr-2" />
-                      <span>{exp.period}</span>
+                    <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                      <div className="flex items-center text-text-secondary text-sm">
+                        <FiCalendar className="mr-2 text-accent" />
+                        <span>{exp.period}</span>
+                      </div>
+
+                      <div className="flex items-center text-text-secondary text-sm">
+                        <FiMapPin className="mr-2 text-accent" />
+                        <span>{exp.company}</span>
+                      </div>
                     </div>
 
                     <ul className="space-y-2">
@@ -109,39 +113,48 @@ const Experience: React.FC = () => {
               variants={itemVariants}
               className="flex items-center gap-2 text-2xl font-bold text-text-primary mb-8 font-heading"
             >
-              <FaGraduationCap className="text-accent text-2xl" />
+              <LuGraduationCap className="text-accent text-2xl" />
               Education
             </motion.h3>
 
             <div className="relative space-y-8">
-              {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent to-accent-light"></div>
+              {/* Timeline line - only visible on md screens and up */}
+              <div className="hidden md:block absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent to-accent-light"></div>
 
               {portfolioData.education.map((edu, index) => (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="relative pl-16"
+                  className="relative md:pl-16 pl-0"
                 >
-                  {/* Timeline dot */}
-                  <div className="absolute left-4 top-6 w-4 h-4 bg-accent rounded-full border-4 border-bg-primary shadow-lg"></div>
+                  {/* Timeline dot - only visible on md screens and up */}
+                  <div className="hidden md:block absolute left-4 top-6 w-4 h-4 bg-accent rounded-full border-4 border-bg-primary shadow-lg"></div>
 
-                  <div className="card-orange p-6">
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <h4 className="text-xl font-semibold text-text-primary font-heading">
-                        {edu.degree}
-                      </h4>
-                      <span className="px-3 py-1 text-sm rounded-full font-medium bg-accent text-bg-primary">
-                        {edu.institution}
-                      </span>
+                  <div className="card-orange p-6 mt-0 md:mt-0">
+                    {/* Title */}
+                    <h4 className="text-xl font-semibold text-text-primary font-heading mb-2">
+                      {edu.degree}
+                    </h4>
+
+                    {/* Date and Location in a row with space between */}
+                    <div className="flex flex-wrap justify-between items-center mb-4">
+                      {/* Left side - Date */}
+                      <div className="flex items-center text-text-secondary text-sm mr-4 mb-2">
+                        <FiCalendar className="mr-2 text-accent flex-shrink-0" />
+                        <span>{edu.period}</span>
+                      </div>
+
+                      {/* Right side - Location */}
+                      <div className="flex items-center text-text-secondary text-sm">
+                        <FiMapPin className="mr-2 text-accent flex-shrink-0" />
+                        <span className="max-w-[180px] break-words">
+                          {edu.institution}
+                        </span>
+                      </div>
                     </div>
 
-                    <div className="flex items-center text-text-secondary mb-4 text-sm">
-                      <FiCalendar className="mr-2" />
-                      <span>{edu.period}</span>
-                    </div>
-
-                    <p className="text-text-secondary">{edu.details}</p>
+                    {/* Education details - can be toggled based on preference */}
+                    {/* <p className="text-text-secondary">{edu.details}</p> */}
                   </div>
                 </motion.div>
               ))}
@@ -152,37 +165,36 @@ const Experience: React.FC = () => {
               variants={itemVariants}
               className="flex items-center gap-2 text-2xl font-bold text-text-primary mt-12 mb-8 font-heading"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6 text-accent"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+              <LuMedal className="text-accent text-2xl" />
               Certifications
             </motion.h3>
 
-            <div className="space-y-4">
-              {portfolioData.certifications.map((cert, index) => (
-                <motion.div key={index} variants={itemVariants}>
-                  <div className="card-orange p-5 flex justify-between items-center">
-                    <div>
-                      <h4 className="text-lg font-semibold text-text-primary font-heading">
-                        {cert.name}
-                      </h4>
-                      <p className="text-text-secondary text-sm">
-                        {cert.institution}
-                      </p>
-                    </div>
+            <div className="relative space-y-8">
+              {/* Timeline line - only visible on md screens and up */}
+              <div className="hidden md:block absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent to-accent-light"></div>
 
-                    <div className="text-accent font-medium">{cert.date}</div>
+              {portfolioData.certifications.map((cert, index) => (
+                <motion.div
+                  key={index}
+                  variants={itemVariants}
+                  className="relative md:pl-16 pl-0"
+                >
+                  {/* Timeline dot - only visible on md screens and up */}
+                  <div className="hidden md:block absolute left-4 top-6 w-4 h-4 bg-accent rounded-full border-4 border-bg-primary shadow-lg"></div>
+
+                  <div className="card-orange p-5 mt-0 md:mt-0">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h4 className="text-lg font-semibold text-text-primary font-heading">
+                          {cert.name}
+                        </h4>
+                        <p className="text-text-secondary text-sm">
+                          {cert.institution}
+                        </p>
+                      </div>
+
+                      <div className="text-accent font-medium">{cert.date}</div>
+                    </div>
                   </div>
                 </motion.div>
               ))}

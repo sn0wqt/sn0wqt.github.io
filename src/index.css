@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* Global styles to prevent overflow on mobile */
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  max-width: 100vw;
+}
+
 /* Enhanced CSS Variables with your specific requirements */
 :root {
   /* Base colors - Light Mode - Softer, easier on the eyes */

@@ -19,7 +19,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-bg-primary text-text-primary">
+      <div className="min-h-screen bg-bg-primary text-text-primary overflow-x-hidden">
         {/* Background elements */}
         <div className="fixed top-0 left-0 w-full h-screen z-0 pointer-events-none overflow-hidden">
           <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-accent/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
@@ -29,7 +29,7 @@ function App() {
 
         {/* Main content */}
         <Header />
-        <main className="relative z-10">
+        <main className="relative z-10 w-full overflow-x-hidden">
           <Hero />
           <About />
           <Skills />
