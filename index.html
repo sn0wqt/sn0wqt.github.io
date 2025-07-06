@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Asaad F. Rasul - Backend Engineer, Reverse Engineer & Future Data Scientist"
+    />
+    <meta
+      name="keywords"
+      content="Asaad Rasul, Backend Engineer, Reverse Engineer, Data Science, Portfolio, Java, Spring Boot, TypeScript, React"
+    />
+    <meta name="author" content="Asaad F. Rasul" />
+    <title>sn0wqt • Asaad F. Rasul | Portfolio</title>
+    <!-- Prevent any flash during theme loading -->
+    <style>
+      html.theme-initializing * {
+        transition: none !important;
+      }
+    </style>
+    <!-- Optimized font loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Prevent Flash of Unstyled Theme (FOUT) -->
+    <script>
+      (function () {
+        // Add class to prevent transitions during theme initialization
+        document.documentElement.classList.add("theme-initializing");
+
+        // Check localStorage first
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme && ["light", "dark"].includes(savedTheme)) {
+          document.documentElement.setAttribute("data-theme", savedTheme);
+          return;
+        }
+
+        // Check system preference as fallback
+        if (
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          document.documentElement.setAttribute("data-theme", "dark");
+        } else {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

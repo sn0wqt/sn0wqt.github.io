@@ -1,0 +1,437 @@
+@import "tailwindcss";
+
+/* Enhanced CSS Variables with your specific requirements */
+:root {
+  /* Base colors - Light Mode - Softer, easier on the eyes */
+  --color-bg-primary: 248 246 235; /* Softer warm base */
+  --color-bg-secondary: 245 241 236; /* Gentle warm secondary */
+  --color-bg-tertiary: 242 235 227; /* Muted warm cards */
+  --color-text-primary: 67 56 40; /* Dark warm brown for strong contrast */
+  --color-text-secondary: 92 77 57; /* Medium warm brown */
+  --color-text-muted: 120 100 76; /* Readable warm brown */
+
+  /* Orange accent system - Enhanced for better visibility */
+  --color-accent: 254 113 90; /* Orange accent for light mode */
+  --color-accent-light: 255 135 110; /* Lighter orange */
+  --color-accent-dark: 240 95 75; /* Darker orange */
+
+  /* Orange palette for light mode - softer tones */
+  --color-orange-50: 248 246 243;
+  --color-orange-100: 245 241 236;
+  --color-orange-200: 242 235 227;
+  --color-orange-300: 253 230 207;
+  --color-orange-400: 252 211 177;
+  --color-orange-500: 255 158 130;
+  --color-orange-600: 254 113 90;
+  --color-orange-700: 240 95 75;
+  --color-orange-800: 215 80 60;
+  --color-orange-900: 180 65 45;
+
+  /* Success/Error colors optimized for light mode */
+  --color-success: 34 197 94; /* Green that works on light */
+  --color-error: 239 68 68; /* Red that works on light */
+  --color-warning: 245 158 11; /* Amber that works on light */
+}
+
+[data-theme="dark"] {
+  /* Base colors - Dark Mode matching the design */
+  --color-bg-primary: 18 30 40; /* #121E28 - Main dark navy background */
+  --color-bg-secondary: 24 35 45; /* #18232D - Header/bar background */
+  --color-bg-tertiary: 28 40 52; /* Slightly lighter for cards */
+  --color-text-primary: 248 250 252; /* Very light for contrast */
+  --color-text-secondary: 203 213 225; /* Light slate */
+  --color-text-muted: 148 163 184; /* Medium slate */
+
+  /* Orange accent system for dark mode */
+  --color-accent: 254 113 90; /* #FE715A - Main orange accent */
+  --color-accent-light: 255 135 110; /* Lighter orange */
+  --color-accent-dark: 240 95 75; /* Darker orange */
+
+  /* Orange palette for dark mode */
+  --color-orange-50: 61 51 84;
+  --color-orange-100: 74 61 102;
+  --color-orange-200: 90 74 124;
+  --color-orange-300: 107 91 149;
+  --color-orange-400: 139 124 182;
+  --color-orange-500: 254 113 90; /* Orange as primary color */
+  --color-orange-600: 255 135 110;
+  --color-orange-700: 255 158 130;
+  --color-orange-800: 255 180 150;
+  --color-orange-900: 255 202 170;
+
+  /* Success/Error colors optimized for dark mode */
+  --color-success: 74 222 128; /* Lighter green for dark */
+  --color-error: 248 113 113; /* Lighter red for dark */
+  --color-warning: 251 191 36; /* Lighter amber for dark */
+}
+
+/* Global styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.3s ease;
+  background-color: rgb(var(--color-bg-primary));
+  color: rgb(var(--color-text-primary));
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Poppins, system-ui, sans-serif;
+  font-weight: 600;
+}
+
+/* Beautiful gradient backgrounds */
+.bg-gradient-orange {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--color-orange-100)),
+    rgb(var(--color-orange-200)),
+    rgb(var(--color-orange-300))
+  );
+}
+
+[data-theme="dark"] .bg-gradient-orange {
+  background: linear-gradient(
+    135deg,
+    rgb(var(--color-bg-secondary)),
+    rgb(var(--color-bg-tertiary)),
+    rgb(28 40 52)
+  );
+}
+
+.bg-gradient-animated {
+  background: linear-gradient(
+    -45deg,
+    rgb(var(--color-orange-400)),
+    rgb(var(--color-orange-500)),
+    rgb(var(--color-orange-600)),
+    rgb(var(--color-orange-700))
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+[data-theme="dark"] .bg-gradient-animated {
+  background: linear-gradient(
+    -45deg,
+    rgb(var(--color-accent) / 0.8),
+    rgb(var(--color-accent-light) / 0.6),
+    rgb(var(--color-accent-dark) / 0.9),
+    rgb(var(--color-accent) / 0.7)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Glass effect for cards */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .glass-effect {
+  background: rgba(24, 35, 45, 0.8); /* Using bar bg color with transparency */
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(254, 113, 90, 0.1); /* Orange border */
+}
+
+.card-orange {
+  @apply rounded-3xl border-2;
+  background: rgb(var(--color-bg-tertiary) / 0.95);
+  border-color: rgb(var(--color-accent));
+  transition: transform 0.16s;
+}
+.card-orange:hover {
+  transform: translateY(-4px) scale(1.012);
+  border-color: rgb(var(--color-accent-light));
+}
+
+[data-theme="dark"] .card-orange {
+  background: rgb(var(--color-bg-tertiary) / 0.94);
+  border-color: rgb(var(--color-accent)); /* Solid orange border */
+}
+[data-theme="dark"] .card-orange:hover {
+  border-color: rgb(var(--color-accent-light));
+}
+
+/* Language container styling to match the main card */
+.language-container {
+  @apply rounded-xl border-2;
+  border-color: rgb(var(--color-accent));
+  background: rgb(var(--color-bg-tertiary) / 0.94);
+}
+
+[data-theme="dark"] .language-container {
+  background: rgb(var(--color-bg-tertiary) / 0.94);
+  border-color: rgb(var(--color-accent));
+}
+
+.section-orange-accent-top {
+  position: absolute;
+  top: -3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 75vw;
+  height: 5rem;
+  border-bottom-left-radius: 9999px;
+  border-bottom-right-radius: 9999px;
+  filter: blur(32px);
+  opacity: 0.35;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--color-accent) / 0.12) 0%,
+    rgb(var(--color-accent-light) / 0.1) 100%
+  );
+}
+
+.section-orange-accent-bottom {
+  position: absolute;
+  bottom: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 65vw;
+  height: 3.5rem;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  filter: blur(28px);
+  opacity: 0.23;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--color-accent-light) / 0.1) 0%,
+    rgb(var(--color-accent) / 0.08) 100%
+  );
+}
+
+/* Enhanced section styling to match Skills component */
+.section-orange {
+  @apply relative py-20 overflow-hidden;
+  background: rgb(var(--color-bg-secondary));
+}
+
+[data-theme="dark"] .section-orange {
+  background: rgb(var(--color-bg-secondary)); /* Using bar bg color #18232D */
+}
+
+/* Beautiful button styling matching the theme */
+.btn-primary {
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 inline-flex items-center gap-2;
+  background: rgb(var(--color-accent));
+  color: white; /* White text on orange background */
+  box-shadow: 0 4px 16px 0 rgba(254, 113, 90, 0.24); /* Orange shadow */
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px 0 rgba(254, 113, 90, 0.32); /* Orange shadow */
+  background: rgb(var(--color-accent-dark));
+}
+
+[data-theme="dark"] .btn-primary {
+  background: rgb(var(--color-accent));
+  color: white;
+  box-shadow: 0 4px 16px 0 rgba(254, 113, 90, 0.24);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: rgb(var(--color-accent-dark));
+  box-shadow: 0 8px 24px 0 rgba(254, 113, 90, 0.32);
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-xl font-medium transition-all duration-300 inline-flex items-center gap-2 border-2;
+  border-color: rgb(var(--color-accent));
+  color: rgb(var(--color-accent));
+  background: rgb(var(--color-bg-primary) / 0.8);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px) scale(1.02);
+  background: rgb(var(--color-bg-primary));
+  border-color: rgb(var(--color-accent-light));
+  box-shadow: 0 8px 24px 0 rgba(254, 113, 90, 0.15);
+}
+
+/* Mouse scroll indicator styles */
+.scroll-downs {
+  position: relative;
+  width: 28px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.mousey {
+  width: 3px;
+  padding: 8px 12px;
+  height: 28px;
+  border: 2px solid rgb(var(--color-text-primary));
+  border-radius: 25px;
+  opacity: 0.85;
+  box-sizing: content-box;
+}
+
+[data-theme="dark"] .mousey {
+  border: 2px solid #ffffff;
+}
+
+.scroller {
+  width: 3px;
+  height: 8px;
+  border-radius: 25%;
+  background-color: rgb(var(--color-text-primary));
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(0.15, 0.41, 0.69, 0.94);
+  animation-iteration-count: infinite;
+}
+
+[data-theme="dark"] .scroller {
+  background-color: #ffffff;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+/* Liquid Morphing Effect for Header Logo */
+.liquid-morph {
+  position: relative;
+  display: inline-block;
+  padding: 0.3rem 0.4rem;
+  overflow: hidden;
+}
+
+.liquid-morph::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -110%;
+  width: 110%;
+  height: 100%;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 25%,
+    rgba(254, 113, 90, 0.5) 40%,
+    rgba(254, 113, 90, 0.7) 50%,
+    rgba(254, 113, 90, 0.5) 60%,
+    transparent 75%,
+    transparent 100%
+  );
+  border-radius: 30px;
+  opacity: 0;
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+.liquid-morph:hover::before {
+  left: 110%;
+  opacity: 1;
+}
+
+.liquid-morph .liquid-text {
+  position: relative;
+  z-index: 2;
+  transition: all 0.5s ease;
+  display: inline-block;
+}
+
+.liquid-morph:hover .liquid-text {
+  text-shadow: 0 0 20px rgba(254, 113, 90, 0.3);
+}
+
+/* Remove the wiggle animation */
+
+.liquid-morph:hover {
+  /* Remove the ripple effect */
+}
+
+/* Smaller liquid morphing effect for navigation links */
+.liquid-morph-nav {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* Filter button styling */
+.filter-btn-selected {
+  background-color: rgb(var(--color-accent)) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.liquid-morph-nav::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -100%;
+  width: 110%;
+  height: 70%;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(254, 113, 90, 0.6) 45%,
+    rgba(254, 113, 90, 0.8) 50%,
+    rgba(254, 113, 90, 0.6) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  border-radius: 20px;
+  opacity: 0;
+  transition: all 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+.liquid-morph-nav:hover::before {
+  left: 100%;
+  opacity: 1;
+}
+
+.liquid-morph-nav .nav-text {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.liquid-morph-nav:hover .nav-text {
+  text-shadow: 0 0 20px rgba(254, 113, 90, 0.6);
+}
