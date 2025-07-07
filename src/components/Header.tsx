@@ -63,7 +63,7 @@ const Header: React.FC = () => {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "py-3 bg-bg-secondary/95 shadow-orange-lg backdrop-blur-md border-b border-accent/20"
+            ? "py-3 bg-bg-secondary/95 shadow-orange-lg backdrop-blur-md border-accent/20"
             : "py-5 bg-transparent"
         }`}
         initial={{ y: -100 }}
