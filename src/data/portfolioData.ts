@@ -116,7 +116,7 @@ export const portfolioData = {
       appStoreUrl: "https://apps.apple.com/app/fruj-fresh/id6511192964",
       playStoreUrl:
         "https://play.google.com/store/apps/details?id=com.architech.frujfresh",
-      imageUrl: "/project-images/fruj.png",
+      imageUrl: "/project-images/fruj2.png",
     },
     {
       title: "ArchiEstate",
@@ -135,7 +135,7 @@ export const portfolioData = {
       liveUrl: "",
       appStoreUrl: "",
       playStoreUrl: "",
-      imageUrl: "/project-images/archiestate.png",
+      imageUrl: "/project-images/archiestate2.png",
     },
     {
       title: "PrivacyFreak (Telegram Bot)",
@@ -146,7 +146,7 @@ export const portfolioData = {
       liveUrl: "",
       appStoreUrl: "",
       playStoreUrl: "",
-      imageUrl: "/project-images/privacy.png",
+      imageUrl: "/project-images/privacy2.png",
     },
     {
       title: "Uncle Movies v2 (Discord Bot)",
@@ -157,7 +157,7 @@ export const portfolioData = {
       liveUrl: "",
       appStoreUrl: "",
       playStoreUrl: "",
-      imageUrl: "/project-images/uncle.png",
+      imageUrl: "/project-images/uncle2.png",
     },
   ],
   certifications: [
