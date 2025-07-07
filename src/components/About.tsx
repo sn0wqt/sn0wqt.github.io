@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { portfolioData } from "../data/portfolioData";
-import musashiImage from "../../public/pfp/musashi.png";
+import musashiImage from "../assets/avatar/musashi.png";
 
 const About: React.FC = () => (
   <section id="about" className="py-20 bg-bg-primary">
