@@ -70,7 +70,7 @@ const About: React.FC = () => (
 
             <div className="pt-4">
               <h3 className="text-2xl font-semibold text-text-primary mb-4 flex items-center gap-3">
-                Backend Engineer & Future Data Scientist
+                Backend Developer & Future Data Scientist
                 <div className="w-2 h-2 bg-accent rounded-full"></div>
               </h3>
 

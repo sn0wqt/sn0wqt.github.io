@@ -54,7 +54,7 @@ const Hero: React.FC = () => {
           >
             <TypedText
               strings={[
-                "Backend Engineer",
+                "Backend Developer",
                 "Reverse Engineer",
                 "Future Data Scientist",
               ]}

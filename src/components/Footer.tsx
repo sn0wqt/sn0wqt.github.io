@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Backend Engineer & Future Data Scientist
+            Backend Developer & Future Data Scientist
           </motion.p>
 
           <div className="flex justify-center gap-6 mb-8">
