@@ -48,6 +48,22 @@ const Projects: React.FC = () => {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(
     portfolioData.selectedProjects as Project[]
   );
+  const [activeCard, setActiveCard] = useState<string | null>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+
+  useEffect(() => {
+    // Detect if device supports touch
+    const checkTouchDevice = () => {
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
+    };
+
+    checkTouchDevice();
+    window.addEventListener("resize", checkTouchDevice);
+
+    return () => window.removeEventListener("resize", checkTouchDevice);
+  }, []);
 
   useEffect(() => {
     // When filter changes, update filtered projects immediately
@@ -60,6 +76,13 @@ const Projects: React.FC = () => {
       setFilteredProjects(filtered);
     }
   }, [selectedFilter]);
+
+  const handleCardTouch = (projectTitle: string) => {
+    // Only handle touch interactions on touch devices
+    if (isTouchDevice) {
+      setActiveCard(activeCard === projectTitle ? null : projectTitle);
+    }
+  };
 
   return (
     <section id="projects" className="py-20 bg-bg-primary">
@@ -154,8 +177,15 @@ const Projects: React.FC = () => {
               <motion.div
                 key={project.title}
                 variants={itemVariants}
-                className="h-full"
+                className={`h-full ${isTouchDevice ? "cursor-pointer" : ""}`}
                 layout
+                onClick={() => handleCardTouch(project.title)}
+                animate={{
+                  scale:
+                    isTouchDevice && activeCard === project.title ? 1.012 : 1,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                // whileHover={!isTouchDevice ? { scale: 1.012 } : undefined}
               >
                 <div className="card-orange overflow-hidden group flex flex-col h-full">
                   {/* Project Image */}
@@ -167,7 +197,6 @@ const Projects: React.FC = () => {
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
                     ) : (
-                      /* Fallback if no image is available */
                       <div className="h-full w-full flex items-center justify-center bg-gradient-to-br from-accent to-accent-dark">
                         <h3 className="text-white font-bold text-xl drop-shadow-lg">
                           {project.title}
@@ -175,10 +204,20 @@ const Projects: React.FC = () => {
                       </div>
                     )}
 
-                    {/* Title overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                    {/* Title overlay */}
+                    <div
+                      className={
+                        `absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent ` +
+                        `transition-all duration-300 flex items-center justify-center ` +
+                        (isTouchDevice
+                          ? activeCard === project.title
+                            ? "opacity-100"
+                            : "opacity-0"
+                          : "opacity-0 group-hover:opacity-100")
+                      }
+                    >
                       <div className="text-center px-4">
-                        <h3 className="text-white font-bold text-xl">
+                        <h3 className="text-white font-bold text-xl drop-shadow-lg">
                           {project.title}
                         </h3>
                       </div>
