@@ -12,7 +12,7 @@ export const portfolioData = {
     {
       degree: "M.Sc. in Data Science",
       institution: "University of Graz, Austria",
-      period: "Oct 2024 – Present",
+      period: "Oct 2025 – Present",
       details:
         "Advanced coursework in machine learning algorithms, statistical modeling, big-data architectures and cloud analytics; co-authoring a study on deep-learning approaches to time-series forecasting.",
     },
