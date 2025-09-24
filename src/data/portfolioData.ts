@@ -1,8 +1,8 @@
 export const portfolioData = {
   name: "Asaad F. Rasul",
   contact: {
-    location: "Sulaymaniyah, Iraq",
-    phone: "+964 770 012 4848",
+    location: "Graz, Austria",
+    phone: "+43 688 64374461",
     email: "asadfalah2@gmail.com",
     portfolio: "sn0wqt.github.io",
     github: "github.com/sn0wqt",
