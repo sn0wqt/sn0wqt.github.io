@@ -1,7 +1,7 @@
 export const portfolioData = {
   name: "Asaad F. Rasul",
   contact: {
-    location: "Graz, Austria",
+    location: "Vienna, Austria",
     phone: "+43 688 64374461",
     email: "asadfalah2@gmail.com",
     portfolio: "sn0wqt.github.io",
@@ -10,11 +10,11 @@ export const portfolioData = {
   },
   education: [
     {
-      degree: "M.Sc. in Data Science",
-      institution: "University of Graz, Austria",
+      degree: "M.Sc. in Software Engineering",
+      institution: "Technische Universität Wien, Austria",
       period: "Oct 2025 – Present",
       details:
-        "Advanced coursework in machine learning algorithms, statistical modeling, big-data architectures and cloud analytics; co-authoring a study on deep-learning approaches to time-series forecasting.",
+        "Focusing on advanced software architecture, distributed systems, and rigorous engineering methodologies within a research-driven environment.",
     },
     {
       degree: "B.Sc. in Software Engineering",
