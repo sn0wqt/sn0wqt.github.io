@@ -70,7 +70,7 @@ const About: React.FC = () => (
 
             <div className="pt-4">
               <h3 className="text-2xl font-semibold text-text-primary mb-4 flex items-center gap-3">
-                Backend Developer & Future Data Scientist
+                Software Engineer & Backend Developer
                 <div className="w-2 h-2 bg-accent rounded-full"></div>
               </h3>
 
@@ -78,8 +78,7 @@ const About: React.FC = () => (
                 <p className="text-text-secondary leading-relaxed">
                   I'm a passionate software engineer with expertise in building
                   scalable backend systems and full-stack applications.
-                  Currently pursuing an M.Sc. in Data Science at the University
-                  of Graz, Austria, I blend technical knowledge with a drive for
+                  Currently pursuing an M.Sc. in Software Engineering at the Vienna University of Technology, Austria, I blend technical knowledge with a drive for
                   continuous learning.
                 </p>
                 <p className="text-text-secondary leading-relaxed">
